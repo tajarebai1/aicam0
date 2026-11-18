@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "model_id": "mask-yolo11n-v4",
+  "display_name": "SafeZone Mask Detector v4",
+  "file_name": "mask_v4.tflite",
+  "task": "detect",
+  "family": "YOLO11n",
+  "format": "tflite",
+  "sha256": "<CALCULATE_AFTER_EXPORT>",
+  "input": {
+    "width": 640,
+    "height": 640,
+    "layout": "NHWC",
+    "dtype": "float32",
+    "color": "RGB",
+    "normalization": "0_to_1"
+  },
+  "output": {
+    "shape": [1, 7, 8400],
+    "nms": false
+  },
+  "classes": {
+    "0": "with_mask",
+    "1": "without_mask",
+    "2": "mask_weared_incorrect"
+  },
+  "mapping": {
+    "with_mask": "compliant",
+    "without_mask": "violation",
+    "mask_weared_incorrect": "violation"
+  },
+  "export": {
+    "tool": "Ultralytics",
+    "version": "8.3.x",
+    "format": "tflite",
+    "source_checkpoint": "best_mask_v4.pt"
+  },
+  "compatibility": {
+    "runtime": "tflite_flutter",
+    "tested_on": "Samsung Galaxy Z Flip3",
+    "validated": false
+  }
+}
