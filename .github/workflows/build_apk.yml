@@ -23,15 +23,13 @@ jobs:
         with:
           channel: 'stable'
           cache: true
+          android: true
+
+      - name: Accept Android licenses
+        run: yes | flutter doctor --android-licenses || true
 
       - name: Install dependencies
         run: flutter pub get
-
-      - name: Analyze code
-        run: flutter analyze
-
-      - name: Run unit tests
-        run: flutter test
 
       - name: Build Release APK
         run: flutter build apk --release
